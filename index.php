@@ -11,13 +11,14 @@
 <p>More info to come...</p>
 <?php
 include 'car.php';
+include 'wheel.php';
 
 echo '<h3>Lets list our cars here!</h3>';
 $car1 = new Car(5, True);
 echo "My first car have " . $car1->get_nr_of_pax() . " spots and the status for Auto is " . boolval($car1->get_is_auto());
-
-//$wheel1 = new Wheel(xxx,xxx);
-//echo "My first wheel have " . $wheel1->get_xxxxx() . " and  is " . $wheel1->get_yyyyy();
+echo '<br>';
+$wheel1 = new Wheel(16, 20);
+echo "My first wheel is " . $wheel1->get_width_and_unit() . " wide and is " . $wheel1->get_diameter_and_unit() . " in diameter.";
 
 //$door1 = new Door(xxx,xxx);
 //echo "My first door have " . $door1->get_xxxxx() . " and  is " . $door1->get_yyyyy();
