@@ -37,7 +37,4 @@
     }
 }
 
-$door1 = new Door(50,100);
-echo "My first door has a width of " . $door1->get_width_and_unit() . " and a height of " . $door1->get_height_and_unit();
-
 ?>
