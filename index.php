@@ -12,6 +12,7 @@
 <?php
 include 'car.php';
 include 'wheel.php';
+include 'door.php';
 
 echo '<h3>Lets list our cars here!</h3>';
 $car1 = new Car(5, True);
@@ -23,8 +24,8 @@ echo '<br>';
 $wheel1 = new Wheel(16, 20);
 echo "My first wheel is " . $wheel1->get_width_and_unit() . " wide and is " . $wheel1->get_diameter_and_unit() . " in diameter.";
 
-//$door1 = new Door(xxx,xxx);
-//echo "My first door have " . $door1->get_xxxxx() . " and  is " . $door1->get_yyyyy();
+$door1 = new Door(50,100);
+echo "My first door has a width of " . $door1->get_width_and_unit() . " and a height of " . $door1->get_height_and_unit();
 
 //$body1 = new Body(xxx,xxx);
 //echo "My first body have " . $body1->get_xxxxx() . " and  is " . $body1->get_yyyyy();
