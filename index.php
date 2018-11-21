@@ -14,7 +14,8 @@ include 'car.php';
 
 echo '<h3>Lets list our cars here!</h3>';
 $car1 = new Car(5, True);
-echo "My first car have " . $car1->get_nr_of_pax() . " spots and the status for Auto is " . boolval($car1->get_is_auto());
+$gearType = ($car1->get_is_auto()) ? 'True' : 'False';
+echo "My first car have " . $car1->get_nr_of_pax() . " passenger spots and the status for automatic gear is " . $gearType ;
 
 //$wheel1 = new Wheel(xxx,xxx);
 //echo "My first wheel have " . $wheel1->get_xxxxx() . " and  is " . $wheel1->get_yyyyy();
