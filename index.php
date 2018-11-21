@@ -29,7 +29,7 @@ $wheel1 = new Wheel(16, 20);
 echo "My first wheel is " . $wheel1->get_width_and_unit() . " wide and is " . $wheel1->get_diameter_and_unit() . " in diameter.";
 >>>>>>> 695430920950a71897a6cabd5e3429f50e589805
 
-/$door1 = new Door(50,100);
+$door1 = new Door(50,100);
 echo "My first door has a width of " . $door1->get_width_and_unit() . " and a height of " . $door1->get_height_and_unit();
 
 //$body1 = new Body(xxx,xxx);
