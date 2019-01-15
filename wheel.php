@@ -2,15 +2,31 @@
  class Wheel{
    private $diameter;
    private $width;
-   private $unit;
+   private $material;
+   private $unit = "inch";
 
-   function __construct($new_diameter, $new_width){
-     $this->diameter = $new_diameter;
-     $this->width = $new_width;
-     $this->unit = "inches";
+   function __construct($new_material, $new_diameter, $new_width){
+   $this->material = $new_material;
+   $this->diameter = $new_diameter;
+   $this->width = $new_width;
+
+   }
+
+   function set_material($new_material){
+     $this->material = $new_material;
+   }
+
+   function get_material(){
+     echo "The mateial of this Wheel is ". $this->material;
    }
 
    function set_width($new_width){
+     $this->width = $new_width;
+   }
+
+   // this function changes the diameter and the width of the object
+   function set_wheel_size($new_diameter, $new_width){
+     $this->diameter = $new_diameter;
      $this->width = $new_width;
    }
 
