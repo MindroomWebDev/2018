@@ -2,11 +2,10 @@
  class Wheel{
    private $diameter;
    private $width;
-   private $material;
+   private $material = "rubber";
    private $unit = "inch";
 
-   function __construct($new_material, $new_diameter, $new_width){
-   $this->material = $new_material;
+   function __construct($new_diameter, $new_width){
    $this->diameter = $new_diameter;
    $this->width = $new_width;
 
