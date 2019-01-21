@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>PHP Classes</title>
+	<link rel="stylesheet" type="text/css" title="style" href="CSS/<?php echo (!isset($_COOKIE['style'])?'normal':$_COOKIE['style']) ?>.css" />
 </head>
 <body>
+
+	<form action="theme_switch.php" method="post">
+  <select name="choice">
+  <option value="White" selected>Classic View</option>
+  <option value="Gray">Gray View</option>
+  <option value="file_name_for_css">Your View</option>
+  </select>
+  <input type="submit" value="Go">
+  </form>
 	<h1>Welcome to my Car inventory page!</h1>
 	<h2>You are invited to add classes, properties and methods to make this web inventory program AWESOME!</h2>
 	<p>Before you commit your code always type "git pull" to get the latest changes!</p>
