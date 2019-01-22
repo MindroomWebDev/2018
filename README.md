@@ -1,4 +1,4 @@
-# Web Inventory System for Vehicles 2018 in PHP
+# Web Inventory System for Vehicles 2018/19 in PHP
 
 This is a custom web project developed by Mindroom Innovation students. 
 

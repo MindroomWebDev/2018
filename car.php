@@ -1,9 +1,9 @@
 <?php
 class Car{
 
-public $make = True;
-public $model = True;
-public $nr_of_passengers = 0;
+public $make = VW;
+public $model = Beatle;
+public $nr_of_passengers = 4;
 public $is_auto = True;
 
 function __construct($mk, $md ,$nr, $is_automatic){

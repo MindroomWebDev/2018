@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Classes</title>
-	<link rel="stylesheet" type="text/css" title="style" href="CSS/<?php echo (!isset($_COOKIE['style'])?'normal':$_COOKIE['style']) ?>.css" />
+	<title>PHP Car Inventory</title>
+	<link rel="stylesheet" type="text/css" title="style" href="CSS/<?php echo (!isset($_COOKIE['style'])?'White':$_COOKIE['style']) ?>.css" />
 </head>
 <body>
 
@@ -32,6 +32,17 @@
 	include 'door.php';
 
 	echo '<h3>Lets list our cars here!</h3>';
+
+
+
+//Example of an Array
+$my_first_array = array(2,5,1,7,3,20,10,100);
+var_dump($my_first_array);
+echo'<br><br><br><br><br>';
+
+//Examplo of instantiating an Object "Car"
+
+
 
 
 	//echo $_GET['subject'];
