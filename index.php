@@ -10,7 +10,7 @@
   <select name="choice">
   <option value="White" selected>Classic View</option>
   <option value="Gray">Gray View</option>
-  <option value="file_name_for_css">Your View</option>
+  <option value="file_name_for_css">Insert Your View Here</option>
   </select>
   <input type="submit" value="Go">
   </form>
@@ -36,17 +36,17 @@
 
 
 //Example of an Array
-$my_first_array = array(2,5,1,7,3,20,10,100);
-var_dump($my_first_array);
-echo'<br><br><br><br><br>';
+//$my_first_array = array(2,5,1,7,3,20,10,100);
+//var_dump($my_first_array);
+//echo'<br><br><br><br><br>';
 
-//Examplo of instantiating an Object "Car"
+//Example of instantiating an Object "Car"
+// $a_car = new Car("BMW", "M3", 5, True);
 
 
 
 
-	//echo $_GET['subject'];
-
+//Example of instantiating multiple Objects "Car" inside an inventory list
 	$cars = array
   (
   array(new Car("BMW", "M3", 5, True),10,2),
@@ -55,9 +55,15 @@ echo'<br><br><br><br><br>';
   //"Saab","9000",seats:5, Manual, sold:4,stock:7
   //"Land Rover", "Explorer",seats:5, Manual, sold:10,stock:7
   );
+
+	for( $i = 0; $i<sizeof($cars); $i++ ) {
+    echo $cars[$i][0]->make."-".$cars[$i][0]->model.": In stock: ".$cars[$i][1].", sold: ".$cars[$i][2].".<br>";
+    }
+
+
 //echo var_dump($cars);
-echo $cars[0][0]->make."-".$cars[0][0]->model.": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".<br>";
-echo $cars[1][0]->make."-".$cars[1][0]->model.": In stock: ".$cars[1][1].", sold: ".$cars[1][2].".<br>";
+//echo $cars[0][0]->make."-".$cars[0][0]->model.": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".<br>";
+//echo $cars[1][0]->make."-".$cars[1][0]->model.": In stock: ".$cars[1][1].", sold: ".$cars[1][2].".<br>";
 
 
 /*

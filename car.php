@@ -1,10 +1,10 @@
 <?php
 class Car{
 
-public $make = VW;
-public $model = Beatle;
-public $nr_of_passengers = 4;
-public $is_auto = True;
+public $make;
+public $model;
+public $nr_of_passengers;
+public $is_auto;
 
 function __construct($mk, $md ,$nr, $is_automatic){
   $this->make = $mk;
