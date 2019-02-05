@@ -6,33 +6,44 @@
 </head>
 <body>
 
+	<?php
+	include 'car.php';
+	//$cars = array();
+	$_SESSION['inventory']=array();
+	if(isset($_POST['SubmitButton'])){ //check if form was submitted
+	  $newCar = new Car($_POST['make'], $_POST['model'], $_POST['auto'], $_POST['nr_seats']); //get input text - "BMW", "M3", 5, True)
+		array_push($_SESSION['inventory'], $newCar);
+	}
+	?>
+
+
 	<form action="theme_switch.php" method="post">
   <select name="choice">
   <option value="White" selected>Classic View</option>
   <option value="Gray">Gray View</option>
   <option value="file_name_for_css">Insert Your View Here</option>
   </select>
-  <input type="submit" value="Go">
+  <input type="submit" name="submitThemeSwithch" value="Go">
   </form>
 	<h1>Welcome to my Car inventory page!</h1>
 	<h2>You are invited to add classes, properties and methods to make this web inventory program AWESOME!</h2>
 	<p>Before you commit your code always type "git pull" to get the latest changes!</p>
 	<p>More info to come...</p>
 
-	<form name="form" action="" method="post">
+	<form name="form" action="index.php" method="post">
 		<input type="text" name="make" id="make" value="Make">
 		<input type="text" name="model" id="model" value="Model">
 		<input type="text" name="auto" id="auto" value="Automatic? True/False">
 		<input type="text" name="nr_seats" id="nr_seats" value="Number of passengers">
+		<input type="submit" name="SubmitButton"/>
 	</form>
 
+
 	<?php
-	include 'car.php';
 	include 'wheel.php';
 	include 'door.php';
-
 	echo '<h3>Lets list our cars here!</h3>';
-
+	//echo $message;
 
 
 //Example of an Array
@@ -47,18 +58,19 @@
 
 
 //Example of instantiating multiple Objects "Car" inside an inventory list
-	$cars = array
+/*	$cars = array
   (
   array(new Car("BMW", "M3", 5, True),10,2),
 	array(new Car("Holden", "Captiva", 7, True),1,2)
   //"BMW","X7",seats:7, Auto, sold:15,stock:13
   //"Saab","9000",seats:5, Manual, sold:4,stock:7
   //"Land Rover", "Explorer",seats:5, Manual, sold:10,stock:7
-  );
-
-	for( $i = 0; $i<sizeof($cars); $i++ ) {
-    echo $cars[$i][0]->make."-".$cars[$i][0]->model.": In stock: ".$cars[$i][1].", sold: ".$cars[$i][2].".<br>";
+);*/
+	//$cars = $_SESSION['inventory'];
+	for( $i = 0; $i<sizeof($_SESSION['inventory']); $i++ ) {
+    echo $_SESSION['inventory'][$i]->make."-".$_SESSION['inventory'][$i]->model;//.": In stock: ".$cars[$i][1].", sold: ".$cars[$i][2].".<br>";
     }
+
 
 
 //echo var_dump($cars);
