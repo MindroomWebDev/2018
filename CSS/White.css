@@ -10,3 +10,7 @@ a:link, a:visited, a:hover, a:active {
   text-decoration: none;
   display: inline-block;
 }
+
+table, th, td {
+  border: 1px solid black;
+}

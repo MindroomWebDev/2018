@@ -8,11 +8,21 @@
 
 	<?php
 	include 'car.php';
-	//$cars = array();
-	$_SESSION['inventory']=array();
+	session_start();
+
+
 	if(isset($_POST['SubmitButton'])){ //check if form was submitted
 	  $newCar = new Car($_POST['make'], $_POST['model'], $_POST['nr_seats'], $_POST['auto']); //get input text - "BMW", "M3", 5, True)
-		array_push($_SESSION['inventory'], $newCar);
+		//array_push($_SESSION['inventory'], $newCar);
+
+		if(!isset($_SESSION['inventory']))
+		{
+			$_SESSION['inventory']=array();
+		}
+		else
+		{
+			 array_push($_SESSION['inventory'], $newCar);
+		}
 	}
 	?>
 
@@ -54,51 +64,39 @@
 //Example of instantiating an Object "Car"
 // $a_car = new Car("BMW", "M3", 5, True);
 
-
-
+//Create another objects with the following attributes
+//"BMW","X7",seats:7, Auto, sold:15,stock:13
 
 //Example of instantiating multiple Objects "Car" inside an inventory list
 /*	$cars = array
   (
   array(new Car("BMW", "M3", 5, True),10,2),
 	array(new Car("Holden", "Captiva", 7, True),1,2)
-  //"BMW","X7",seats:7, Auto, sold:15,stock:13
+
+	//Create and insert more objects in the array with the following attributes
+	//"BMW","X7",seats:7, Auto, sold:15,stock:13
   //"Saab","9000",seats:5, Manual, sold:4,stock:7
   //"Land Rover", "Explorer",seats:5, Manual, sold:10,stock:7
-);*/
-	//$cars = $_SESSION['inventory'];
-	for( $i = 0; $i<sizeof($_SESSION['inventory']); $i++ ) {
-    echo $_SESSION['inventory'][$i]->make."-".$_SESSION['inventory'][$i]->model;//.": In stock: ".$cars[$i][1].", sold: ".$cars[$i][2].".<br>";
-    }
+);
 
-
-
-//echo var_dump($cars);
+echo var_dump($cars);
 //echo $cars[0][0]->make."-".$cars[0][0]->model.": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".<br>";
 //echo $cars[1][0]->make."-".$cars[1][0]->model.": In stock: ".$cars[1][1].", sold: ".$cars[1][2].".<br>";
-
-
-/*
-	$car1 = new Car(5, True);
-
-	$gearType = ($car1->get_is_auto()) ? 'True' : 'False';
-	echo "My first car have " . $car1->get_nr_of_pax() . " passenger spots and the status for automatic gear is " . $gearType ;
-
-	echo '<br>';
-	$wheel1 = new Wheel(16, 20);
-	echo "My first wheel is " . $wheel1->get_width_and_unit() . " wide and is " . $wheel1->get_diameter_and_unit() . " in diameter.";
-
-	$door1 = new Door(50,100);
-	echo "My first door has a width of " . $door1->get_width_and_unit() . " and a height of " . $door1->get_height_and_unit();
-
-	//$body1 = new Body(xxx,xxx);
-	//echo "My first body have " . $body1->get_xxxxx() . " and  is " . $body1->get_yyyyy();
-
-	//$engine1 = new Engine(xxx,xxx);
-	//echo "My first engine have " . $engine1->get_xxxxx() . " and  is " . $engine1->get_yyyyy();
 */
 
-	?>
+echo "<table style='width:50%'>";
+echo "<tr>";
+echo "	 <th>Make</th>";
+echo "	 <th>Model</th> ";
+echo " </tr>";
+for( $i = 0; $i<sizeof($_SESSION['inventory']); $i++ ) {
+		echo "<tr>";
+		echo "<td>".$_SESSION['inventory'][$i]->make."</td><td>".$_SESSION['inventory'][$i]->model."</td>";//.": In stock: ".$cars[$i][1].", sold: ".$cars[$i][2].".<br>";
+		echo "<tr>";
+}
+echo "</table>";
+
+?>
 
 </body>
 </html>
