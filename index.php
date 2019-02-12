@@ -1,3 +1,22 @@
+<?php
+if(session_status()!=PHP_SESSION_ACTIVE) session_start();
+
+if(isset($_POST['SubmitButton'])){ //check if form was submitted
+	$newCar = new Car($_POST['make'], $_POST['model'], $_POST['nr_seats'], $_POST['auto']); //get input text - "BMW", "M3", 5, True)
+	//array_push($_SESSION['inventory'], $newCar);
+
+	if(!isset($_SESSION['inventory']))
+	{
+		$_SESSION['inventory']=array();
+	}
+	else
+	{
+		 array_push($_SESSION['inventory'], $newCar);
+	}
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,27 +24,6 @@
 	<link rel="stylesheet" type="text/css" title="style" href="CSS/<?php echo (!isset($_COOKIE['style'])?'White':$_COOKIE['style']) ?>.css" />
 </head>
 <body>
-
-	<?php
-	include 'car.php';
-	session_start();
-
-
-	if(isset($_POST['SubmitButton'])){ //check if form was submitted
-	  $newCar = new Car($_POST['make'], $_POST['model'], $_POST['nr_seats'], $_POST['auto']); //get input text - "BMW", "M3", 5, True)
-		//array_push($_SESSION['inventory'], $newCar);
-
-		if(!isset($_SESSION['inventory']))
-		{
-			$_SESSION['inventory']=array();
-		}
-		else
-		{
-			 array_push($_SESSION['inventory'], $newCar);
-		}
-	}
-	?>
-
 
 	<form action="theme_switch.php" method="post">
   <select name="choice">
@@ -52,6 +50,8 @@
 	<?php
 	include 'wheel.php';
 	include 'door.php';
+	include 'car.php';
+
 	echo '<h3>Lets list our cars here!</h3>';
 	//echo $message;
 
@@ -83,7 +83,8 @@ echo var_dump($cars);
 //echo $cars[0][0]->make."-".$cars[0][0]->model.": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".<br>";
 //echo $cars[1][0]->make."-".$cars[1][0]->model.": In stock: ".$cars[1][1].", sold: ".$cars[1][2].".<br>";
 */
-
+if(!isset($_SESSION['inventory']))
+{
 echo "<table style='width:50%'>";
 echo "<tr>";
 echo "	 <th>Make</th>";
@@ -95,7 +96,7 @@ for( $i = 0; $i<sizeof($_SESSION['inventory']); $i++ ) {
 		echo "<tr>";
 }
 echo "</table>";
-
+}
 ?>
 
 </body>
