@@ -12,16 +12,16 @@ session_start();
 <body>
 
 	<?php
-
+	if(!isset($_SESSION['inventory']))
+	{
+		$_SESSION['inventory']=array();
+	}
+	
 	if(isset($_POST['SubmitButton'])){ //check if form was submitted
 	  $newCar = new Car($_POST['make'], $_POST['model'], $_POST['nr_seats'], $_POST['auto']); //get input text - "BMW", "M3", 5, True)
 		//array_push($_SESSION['inventory'], $newCar);
 
-		if(!isset($_SESSION['inventory']))
-		{
-			$_SESSION['inventory']=array();
-		}
-		else
+		if(isset($_SESSION['inventory']))
 		{
 			 array_push($_SESSION['inventory'], $newCar);
 		}
